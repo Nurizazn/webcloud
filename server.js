@@ -7,18 +7,20 @@ const app = express();
 
 // Konfigurasi koneksi ke database MySQL
 const db = mysql.createConnection({
-    host: 'localhost',   
-    user: 'root',        
-    password: '',        
-    database: 'webcloud-app' 
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
+    port: process.env.DATABASE_PORT || 3306,
+    ssl: { rejectUnauthorized: true }
 });
 
 // Coba koneksi ke database
 db.connect((err) => {
     if (err) {
-        console.error('Koneksi ke database gagal:', err);
+        console.error('Koneksi database gagal:', err);
     } else {
-        console.log('Terhubung ke database MySQL');
+        console.log('Terhubung ke database Azure!');
     }
 });
 
