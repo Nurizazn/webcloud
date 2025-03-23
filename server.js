@@ -8,7 +8,7 @@ const app = express();
 // Konfigurasi koneksi ke database MySQL
 const db = mysql.createConnection({
     host: 'webcloud-mysql.mysql.database.azure.com',
-    user: 'dminwebcloud@webcloud-mysql',
+    user: 'adminwebcloud@webcloud-mysql',
     password: 'adminwebcc.01',
     database: 'webcloud-app',
     port: 3306,
