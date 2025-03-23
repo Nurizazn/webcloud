@@ -7,12 +7,10 @@ const app = express();
 
 // Konfigurasi koneksi ke database MySQL
 const db = mysql.createConnection({
-    host: 'webcloud-mysql.mysql.database.azure.com',
-    user: 'adminwebcloud@webcloud-mysql',
-    password: 'adminwebcc.01',
-    database: 'webcloud-app',
-    port: 3306,
-    ssl: require
+    host: 'localhost',   
+    user: 'root',        
+    password: '',        
+    database: 'webcloud-app' 
 });
 
 db.connect((err) => {
@@ -123,9 +121,12 @@ app.get('/data', (req, res) => {
     });
 });
 
+// Jalankan server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(Server running on port ${PORT});
+}).on('error', (err) => {
+  console.error('Failed to start server:', err);
 });
 
 
